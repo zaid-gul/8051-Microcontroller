@@ -1,0 +1,3 @@
+".\Objects\DISPLAY.obj" 
+TO ".\Objects\LCD DISPLAY" 
+PRINT(".\Listings\LCD DISPLAY.m51")

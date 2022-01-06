@@ -1,0 +1,66 @@
+A51 MACRO ASSEMBLER  8051_PROJECT_SAMPLE                                                  12/04/2016 16:26:25 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\8051 project sample.obj
+ASSEMBLER INVOKED BY: D:\PROGRAM FILES\KEIL\C51\BIN\A51.EXE 8051 project sample.a51 SET(SMALL) DEBUG PRINT(.\Listings\80
+                      51 project sample.lst) OBJECT(.\Objects\8051 project sample.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 00H
+
+0000 7590FF            2     MOV P1,#11111111B    
+
+0003 758000            3     MOV P0,#00000000B    
+
+0006 75B000            4     MOV P3,#00000000B    
+
+                       5          
+
+0009 7CFA              6     MAIN: MOV R4,#250D   
+
+000B C2A0              7           CLR P2.0     
+
+000D D2A1              8           SETB P2.1    
+
+000F C2A2              9           CLR P2.2      
+
+0011 D2A2             10           SETB P2.2      
+
+0013 20A3FD           11     WAIT: JB P2.3,WAIT   
+
+0016 C2A0             12           CLR P2.0       
+
+0018 C2A1             13           CLR P2.1       
+
+001A E590             14           MOV A,P1       
+
+                      15               ;Reading done
+
+001C F580             16     MOV P0,A 
+
+                      17     
+
+                      18     end
+
+A51 MACRO ASSEMBLER  8051_PROJECT_SAMPLE                                                  12/04/2016 16:26:25 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+MAIN . . . . . . .  C ADDR   0009H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+WAIT . . . . . . .  C ADDR   0013H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

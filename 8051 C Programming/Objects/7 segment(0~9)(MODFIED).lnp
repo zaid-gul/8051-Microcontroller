@@ -1,0 +1,3 @@
+".\Objects\7SEGMENT MODIFIED.obj" 
+TO ".\Objects\7 segment(0~9)(MODFIED)" 
+PRINT(".\Listings\7 segment(0~9)(MODFIED).m51")

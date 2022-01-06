@@ -1,0 +1,6 @@
+# Writing all output to: C:\Users\ZAID\Documents\8051 PROJECT\8051 PROJECT (generic board  2).log
+set pad_wire_necking on
+bus diagonal
+fanout 5
+route 50
+Process stopped!

@@ -1,0 +1,3 @@
+".\Objects\even or odd.obj" 
+TO ".\Objects\random display" 
+PRINT(".\Listings\random display.m51")

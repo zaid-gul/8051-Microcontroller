@@ -1,0 +1,95 @@
+A51 MACRO ASSEMBLER  HOMEQ1                                                               11/27/2016 20:56:18 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\homeq1.obj
+ASSEMBLER INVOKED BY: D:\PROGRAM FILES\KEIL\C51\BIN\A51.EXE homeq1.a51 SET(SMALL) DEBUG PRINT(.\Listings\homeq1.lst) OBJ
+                      ECT(.\Objects\homeq1.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+
+0000 E4                2             CLR A
+
+0001                   3             HERE:
+
+0001 1105              4             CALL CHECK
+
+0003 80FC              5             JMP HERE
+
+0005                   6     CHECK:
+
+0005 B4FF08            7             CJNE A,#255,COUNTING
+
+0008 F590              8             MOV P1,A
+
+000A F5A0              9             MOV P2,A
+
+000C F5B0             10             MOV P3,A
+
+000E F580             11             MOV P0,A
+
+0010                  12             COUNTING:
+
+0010 F590             13             MOV P1,A
+
+0012 F5A0             14             MOV P2,A
+
+0014 F5B0             15             MOV P3,A
+
+0016 F580             16             MOV P0,A
+
+0018 04               17             INC A
+
+0019 111C             18             CALL DELAY
+
+001B 22               19             RET
+
+001C                  20     DELAY:
+
+001C 758901           21             MOV TMOD,#01H
+
+001F 758CFE           22             MOV TH0,#0FEH
+
+0022 758A0C           23             MOV TL0,#0CH
+
+0025 D28C             24             SETB TR0
+
+0027 308DFD           25             JNB TF0,$
+
+002A C28D             26             CLR TF0
+
+002C C28C             27             CLR TR0
+
+002E 22               28             RET     
+
+                      29             END
+
+A51 MACRO ASSEMBLER  HOMEQ1                                                               11/27/2016 20:56:18 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+CHECK. . . . . . .  C ADDR   0005H   A   
+COUNTING . . . . .  C ADDR   0010H   A   
+DELAY. . . . . . .  C ADDR   001CH   A   
+HERE . . . . . . .  C ADDR   0001H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+TF0. . . . . . . .  B ADDR   0088H.5 A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,3 @@
+".\Objects\lcd back.obj" 
+TO ".\Objects\lcd back" 
+PRINT(".\Listings\lcd back.m51")

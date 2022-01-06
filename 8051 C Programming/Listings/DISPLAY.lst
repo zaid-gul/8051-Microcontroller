@@ -1,0 +1,179 @@
+A51 MACRO ASSEMBLER  DISPLAY                                                              12/28/2016 21:33:27 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\DISPLAY.obj
+ASSEMBLER INVOKED BY: D:\PROGRAM FILES\KEIL\C51\BIN\A51.EXE DISPLAY.a51 SET(SMALL) DEBUG PRINT(.\Listings\DISPLAY.lst) O
+                      BJECT(.\Objects\DISPLAY.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 00H
+
+0000 7438              2     MOV A,#38H   
+
+0002 1164              3     ACALL CMD
+
+0004 740E              4     MOV A,#0EH   
+
+0006 1164              5     ACALL CMD
+
+0008 7401              6     MOV A,#01H   
+
+000A 1164              7     ACALL CMD
+
+000C 7406              8     MOV A,#06H   ;increment
+
+000E 1164              9     ACALL CMD
+
+0010 740E             10     MOV A,#0EH    ;display on cursor on
+
+0012 1164             11     ACALL CMD
+
+0014 7482             12     MOV A ,#82H   
+
+0016 1164             13     ACALL CMD
+
+0018 7448             14     MOV A,#'H'
+
+001A 1171             15     ACALL DT
+
+001C 117E             16     ACALL DELAY
+
+001E 7484             17     MOV A ,#84H
+
+0020 1164             18     ACALL CMD
+
+0022 7445             19     MOV A,#'E'
+
+0024 1171             20     ACALL DT
+
+0026 117E             21     ACALL DELAY
+
+0028 7486             22     MOV A ,#86H
+
+002A 1164             23     ACALL CMD
+
+002C 744C             24     MOV A,#'L'
+
+002E 1171             25     ACALL DT
+
+0030 117E             26     ACALL DELAY
+
+0032 7488             27     MOV A ,#88H
+
+0034 1164             28     ACALL CMD
+
+0036 744C             29     MOV A,#'L'
+
+0038 1171             30     ACALL DT
+
+003A 117E             31     ACALL DELAY
+
+003C 748A             32     MOV A,#8AH
+
+003E 1164             33     ACALL CMD
+
+0040 744F             34     MOV A,#'O'
+
+0042 1171             35     ACALL DT
+
+0044 117E             36     ACALL DELAY
+
+0046 74C4             37     MOV A ,#0C4H
+
+0048 1164             38     ACALL CMD
+
+004A 7455             39     MOV A,#'U'
+
+004C 1171             40     ACALL DT
+
+004E 117E             41     ACALL DELAY
+
+0050 74C6             42     MOV A ,#0C6H
+
+0052 1164             43     ACALL CMD
+
+0054 7445             44     MOV A,#'E'
+
+0056 1171             45     ACALL DT
+
+0058 117E             46     ACALL DELAY
+
+005A 74C8             47     MOV A ,#0C8H
+
+005C 1164             48     ACALL CMD
+
+005E 7454             49     MOV A,#'T'
+
+0060 1171             50     ACALL DT
+
+0062 117E             51     ACALL DELAY
+
+0064                  52     CMD:
+
+0064 F590             53     MOV P1,A
+
+0066 C2A0             54     CLR P2.0
+
+0068 C2A1             55     CLR P2.1
+
+006A D2A2             56     SETB P2.2
+
+006C 117E             57     ACALL DELAY
+
+A51 MACRO ASSEMBLER  DISPLAY                                                              12/28/2016 21:33:27 PAGE     2
+
+006E C2A2             58     CLR P2.2
+
+0070 22               59     RET
+
+0071                  60     DT:
+
+0071 F590             61     MOV P1,A
+
+0073 D2A0             62     SETB P2.0
+
+0075 C2A1             63     CLR P2.1
+
+0077 D2A2             64     SETB P2.2
+
+0079 117E             65     ACALL DELAY
+
+007B C2A2             66     CLR P2.2
+
+007D 22               67     RET
+
+007E 7EFA             68     DELAY:  MOV R6,#250D
+
+0080 7FFA             69             MOV R7,#250D
+
+0082 DEFE             70     LABEL1: DJNZ R6,LABEL1
+
+0084 DFFE             71     LABEL2: DJNZ R7,LABEL2
+
+0086 22               72     RET      
+
+                      73     END
+
+A51 MACRO ASSEMBLER  DISPLAY                                                              12/28/2016 21:33:27 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+CMD. . . . . . . .  C ADDR   0064H   A   
+DELAY. . . . . . .  C ADDR   007EH   A   
+DT . . . . . . . .  C ADDR   0071H   A   
+LABEL1 . . . . . .  C ADDR   0082H   A   
+LABEL2 . . . . . .  C ADDR   0084H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

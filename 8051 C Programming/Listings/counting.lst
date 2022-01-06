@@ -1,0 +1,223 @@
+A51 MACRO ASSEMBLER  COUNTING                                                             12/29/2016 01:04:37 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\counting.obj
+ASSEMBLER INVOKED BY: D:\PROGRAM FILES\KEIL\C51\BIN\A51.EXE counting.a51 SET(SMALL) DEBUG PRINT(.\Listings\counting.lst)
+                       OBJECT(.\Objects\counting.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 00H
+
+0000                   2     START:
+
+0000 1123              3     CALL LCD_INITIALIZE
+
+0002 D2B4              4     SETB P3.4
+
+0004 1108              5     CALL COUNTER
+
+0006 80F8              6     JMP START
+
+                       7     
+
+0008                   8     COUNTER:
+
+0008 758906            9     MOV TMOD,#06
+
+000B 758C00           10     MOV TH0,#00
+
+000E 758A00           11     MOV TL0,#00
+
+0011                  12     AGAIN:
+
+0011 D28C             13     SETB TR0
+
+0013                  14     BACK:
+
+0013 E58A             15     MOV A,TL0
+
+0015 1161             16     CALL CONVERT
+
+0017 1138             17     CALL DISPLAY
+
+0019 308DF7           18     JNB TF0,BACK
+
+001C C28D             19     CLR TF0
+
+001E C28C             20     CLR TR0
+
+0020 80EF             21     JMP AGAIN
+
+0022 22               22     RET 
+
+0023                  23     LCD_INITIALIZE:
+
+0023 7438             24     MOV A,#38H   
+
+0025 1154             25     ACALL CMD
+
+0027 740E             26     MOV A,#0EH   
+
+0029 1154             27     ACALL CMD
+
+002B 7401             28     MOV A,#01H   
+
+002D 1154             29     ACALL CMD
+
+002F 7406             30     MOV A,#06H   
+
+0031 1154             31     ACALL CMD
+
+0033 740E             32     MOV A,#0EH    
+
+0035 1154             33     ACALL CMD
+
+0037 22               34     RET
+
+0038                  35     DISPLAY:
+
+0038 7482             36     MOV A ,#82H   
+
+003A 1154             37     CALL CMD
+
+003C EC               38     MOV A,R4
+
+003D 1178             39     CALL DT
+
+003F 1185             40     CALL DELAY
+
+0041 7483             41     MOV A ,#83H
+
+0043 1154             42     CALL CMD
+
+0045 EA               43     MOV A,R2
+
+0046 1178             44     CALL DT
+
+0048 1185             45     CALL DELAY
+
+004A 7484             46     MOV A ,#84H
+
+004C 1154             47     CALL CMD
+
+004E EB               48     MOV A,R3
+
+004F 1178             49     CALL DT
+
+0051 1185             50     CALL DELAY
+
+0053 22               51     RET
+
+0054                  52     CMD:
+
+0054 F590             53     MOV P1,A
+
+0056 C2A0             54     CLR P2.0
+
+0058 C2A1             55     CLR P2.1
+
+005A D2A2             56     SETB P2.2
+
+005C 1185             57     ACALL DELAY
+
+A51 MACRO ASSEMBLER  COUNTING                                                             12/29/2016 01:04:37 PAGE     2
+
+005E C2A2             58     CLR P2.2
+
+0060 22               59     RET
+
+0061                  60     CONVERT:
+
+0061 75F00A           61     MOV B,#10
+
+0064 84               62     DIV AB
+
+0065 AAF0             63     MOV R2,B
+
+0067 75F00A           64     MOV B,#10
+
+006A 84               65     DIV AB
+
+006B 4430             66     ORL A,#30H
+
+006D FC               67     MOV R4,A
+
+006E E5F0             68     MOV A,B
+
+0070 4430             69     ORL A,#30H
+
+0072 FB               70     MOV R3,A
+
+0073 EA               71     MOV A,R2
+
+0074 7430             72     MOV A,#30H
+
+0076 FA               73     MOV R2,A
+
+0077 22               74     RET
+
+0078                  75     DT:
+
+0078 F590             76     MOV P1,A
+
+007A D2A0             77     SETB P2.0
+
+007C C2A1             78     CLR P2.1
+
+007E D2A2             79     SETB P2.2
+
+0080 1185             80     ACALL DELAY
+
+0082 C2A2             81     CLR P2.2
+
+0084 22               82     RET
+
+0085 7EFA             83     DELAY:  MOV R6,#250D
+
+0087 7FFA             84             MOV R7,#250D
+
+0089 DEFE             85     LABEL1: DJNZ R6,LABEL1
+
+008B DFFE             86     LABEL2: DJNZ R7,LABEL2
+
+008D 22               87     RET      
+
+                      88     END
+
+A51 MACRO ASSEMBLER  COUNTING                                                             12/29/2016 01:04:37 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AGAIN. . . . . . .  C ADDR   0011H   A   
+B. . . . . . . . .  D ADDR   00F0H   A   
+BACK . . . . . . .  C ADDR   0013H   A   
+CMD. . . . . . . .  C ADDR   0054H   A   
+CONVERT. . . . . .  C ADDR   0061H   A   
+COUNTER. . . . . .  C ADDR   0008H   A   
+DELAY. . . . . . .  C ADDR   0085H   A   
+DISPLAY. . . . . .  C ADDR   0038H   A   
+DT . . . . . . . .  C ADDR   0078H   A   
+LABEL1 . . . . . .  C ADDR   0089H   A   
+LABEL2 . . . . . .  C ADDR   008BH   A   
+LCD_INITIALIZE . .  C ADDR   0023H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+START. . . . . . .  C ADDR   0000H   A   
+TF0. . . . . . . .  B ADDR   0088H.5 A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

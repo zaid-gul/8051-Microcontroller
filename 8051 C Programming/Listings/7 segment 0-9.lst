@@ -1,0 +1,77 @@
+A51 MACRO ASSEMBLER  7_SEGMENT_0_9                                                        10/18/2016 00:27:26 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\7 segment 0-9.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE 7 segment 0-9.a51 SET(SMALL) DEBUG PRINT(.\Listings\7 segment 0-9.lst) 
+                      OBJECT(.\Objects\7 segment 0-9.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+
+0000                   2     START:  
+
+0000 780A              3     MOV R0,#10   ; counter
+
+0002 900200            4     MOV DPTR,#200H  ;load ROM pointer
+
+0005                   5     HERE:   
+
+0005 E4                6     CLR A          ;A=0
+
+0006 93                7     MOVC A,@A+DPTR     ;index addressing, direct to the rom location of 200H+value of A
+
+0007 F5A0              8     MOV P2,A        ;Display on port 2
+
+0009 510A              9     ACALL DELAY    ;Calling subroutine
+
+000B A3               10     INC DPTR        ;increasing value
+
+000C D8F7             11     DJNZ R0,HERE     ; decrement and jump if not zero 
+
+000E 80F0             12     SJMP START      ;make loop continuous
+
+0200                  13     ORG 200H          ; directive for data byte
+
+0200 3F065B4F         14     DB 3FH,06H,5BH,4FH,66H,6DH,7DH,07H,7FH,6FH      ;look-up table
+
+0204 666D7D07                
+0208 7F6F                    
+020A 7C05             15     DELAY: MOV R4,#05H ; subroutine for delay 1/2 sec
+
+020C 7B00             16     WAIT1: MOV R3,#00H
+
+020E 7A00             17     WAIT2: MOV R2,#00H
+
+0210 DAFE             18     WAIT3: DJNZ R2,WAIT3     ; decrement and jump if not zero  
+
+0212 DBFA             19     DJNZ R3,WAIT2             ; decrement and jump if not zero 
+
+0214 DCF6             20     DJNZ R4,WAIT1         ; decrement and jump if not zero       
+
+0216 22               21     RET             ;return
+
+                      22     END   ;end program
+
+A51 MACRO ASSEMBLER  7_SEGMENT_0_9                                                        10/18/2016 00:27:26 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DELAY. . . . . . .  C ADDR   020AH   A   
+HERE . . . . . . .  C ADDR   0005H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+START. . . . . . .  C ADDR   0000H   A   
+WAIT1. . . . . . .  C ADDR   020CH   A   
+WAIT2. . . . . . .  C ADDR   020EH   A   
+WAIT3. . . . . . .  C ADDR   0210H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,3 @@
+".\Objects\odd even (squared).obj" 
+TO ".\Objects\odd even display  (squared numbers)" 
+PRINT(".\Listings\odd even display  (squared numbers).m51")

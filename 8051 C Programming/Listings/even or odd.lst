@@ -1,0 +1,95 @@
+A51 MACRO ASSEMBLER  EVEN_OR_ODD                                                          10/11/2016 19:34:34 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\even or odd.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE even or odd.a51 SET(SMALL) DEBUG PRINT(.\Listings\even or odd.lst) OBJE
+                      CT(.\Objects\even or odd.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+
+0000                   2             HERE:
+
+0000 1104              3     CALL CHECK
+
+0002 80FC              4     JMP HERE
+
+0004                   5     CHECK:
+
+0004 C2A0              6     clr P2.0
+
+0006 C2A1              7     clr P2.1
+
+0008 C2A2              8     clr P2.2
+
+000A C2A3              9     clr P2.3
+
+000C C2A4             10     clr P2.4
+
+000E C2A5             11     clr P2.5
+
+0010 C2A6             12     clr P2.6
+
+0012 C2A7             13     clr P2.7
+
+0014 C290             14     clr P1.0
+
+0016 C291             15     clr P1.1
+
+0018 C292             16     clr P1.2
+
+001A C293             17     clr P1.3
+
+001C C294             18     clr P1.4
+
+001E C295             19     clr P1.5
+
+0020 C296             20     clr P1.6
+
+0022 C297             21     clr P1.7
+
+0024 C3               22     clr C
+
+0025 A280             23     MOV C,P0.0
+
+0027 5005             24     JNC DOWN
+
+0029 858090           25     MOV P1,P0
+
+002C 8003             26     JMP DOWN1
+
+002E                  27     DOWN:
+
+002E 8580A0           28     MOV P2,P0
+
+0031                  29     DOWN1:
+
+0031 22               30     RET 
+
+                      31     END
+
+                                     
+
+A51 MACRO ASSEMBLER  EVEN_OR_ODD                                                          10/11/2016 19:34:34 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+CHECK. . . . . . .  C ADDR   0004H   A   
+DOWN . . . . . . .  C ADDR   002EH   A   
+DOWN1. . . . . . .  C ADDR   0031H   A   
+HERE . . . . . . .  C ADDR   0000H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

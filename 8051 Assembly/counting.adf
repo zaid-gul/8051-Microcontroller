@@ -1,0 +1,12 @@
+# Assembler debug file for MCU 8051 IDE v1.4.9
+# Used assembler: MCU 8051 IDE
+# Date: 10/17/2016
+D8C0492DD32B199C983E10A756316FCC "counting.asm" 
+0 2 0 228
+0 4 1 18 0 6
+0 5 4 128 251
+0 7 6 180 255 2
+0 8 9 245 144
+0 10 11 245 144
+0 11 13 4
+0 12 14 34

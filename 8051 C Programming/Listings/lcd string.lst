@@ -1,0 +1,138 @@
+A51 MACRO ASSEMBLER  LCD_STRING                                                           01/05/2017 23:38:31 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\lcd string.obj
+ASSEMBLER INVOKED BY: D:\PROGRAM FILES\KEIL\C51\BIN\A51.EXE lcd string.a51 SET(SMALL) DEBUG PRINT(.\Listings\lcd string.
+                      lst) OBJECT(.\Objects\lcd string.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 00H
+
+  00A0                 2     RS EQU P2.0
+
+  00A1                 3     RW EQU P2.1
+
+  00A2                 4     EN EQU P2.2
+
+  0090                 5     LCD_PORT EQU P1
+
+0000 7438              6     MOV A,#38H   
+
+0002 111F              7     ACALL CMD
+
+0004 740E              8     MOV A,#0EH   
+
+0006 111F              9     ACALL CMD
+
+0008 7401             10     MOV A,#01H   
+
+000A 111F             11     ACALL CMD
+
+000C 7480             12     MOV A,#80H
+
+000E 111F             13     ACALL CMD
+
+0010 900042           14     MOV DPTR,#MYSTRING
+
+0013 1115             15     ACALL WRTSTRING
+
+0015                  16     WRTSTRING:
+
+0015 E4               17     CLR A
+
+0016 93               18     MOVC A,@A+DPTR
+
+0017 6005             19     JZ EXIT
+
+0019 112C             20     CALL DT
+
+001B A3               21     INC DPTR
+
+001C 80F7             22     JMP WRTSTRING
+
+001E                  23     EXIT:
+
+001E 22               24     RET
+
+001F                  25     CMD:
+
+001F F590             26     MOV P1,A
+
+0021 C2A0             27     CLR RS
+
+0023 C2A1             28     CLR RW
+
+0025 D2A2             29     SETB EN
+
+0027 1139             30     ACALL DELAY
+
+0029 C2A2             31     CLR EN
+
+002B 22               32     RET
+
+002C                  33     DT:
+
+002C F590             34     MOV P1,A
+
+002E D2A0             35     SETB RS
+
+0030 C2A1             36     CLR RW
+
+0032 D2A2             37     SETB EN
+
+0034 1139             38     ACALL DELAY
+
+0036 C2A2             39     CLR EN
+
+0038 22               40     RET      
+
+0039                  41     DELAY:
+
+0039 7EFA             42     MOV R6,#250D
+
+003B 7FFA             43             MOV R7,#250D
+
+003D DEFE             44     LABEL1: DJNZ R6,LABEL1
+
+003F DFFE             45     LABEL2: DJNZ R7,LABEL2
+
+0041 22               46     RET 
+
+0042                  47     MYSTRING:
+
+0042 48454C4C         48     DB "HELLO WORLD"
+
+0046 4F20574F                
+004A 524C44                  
+                      49     END     
+
+A51 MACRO ASSEMBLER  LCD_STRING                                                           01/05/2017 23:38:31 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+CMD. . . . . . . .  C ADDR   001FH   A   
+DELAY. . . . . . .  C ADDR   0039H   A   
+DT . . . . . . . .  C ADDR   002CH   A   
+EN . . . . . . . .  B ADDR   00A0H.2 A   
+EXIT . . . . . . .  C ADDR   001EH   A   
+LABEL1 . . . . . .  C ADDR   003DH   A   
+LABEL2 . . . . . .  C ADDR   003FH   A   
+LCD_PORT . . . . .  D ADDR   0090H   A   
+MYSTRING . . . . .  C ADDR   0042H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+RS . . . . . . . .  B ADDR   00A0H.0 A   
+RW . . . . . . . .  B ADDR   00A0H.1 A   
+WRTSTRING. . . . .  C ADDR   0015H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,79 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        10/11/2016  20:19:21  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\odd even (squared).obj TO .\Objects\odd even display  (squared numbers) PRINT (.\L
+>> istings\odd even display  (squared numbers).m51)
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\odd even (squared).obj (ODD_EVEN__SQUARED_)
+
+
+LINK MAP OF MODULE:  .\Objects\odd even display  (squared numbers) (ODD_EVEN__SQUARED_)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     023EH     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\odd even display  (squared numbers) (ODD_EVEN__SQUARED_)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ODD_EVEN__SQUARED_
+  C:0210H         SYMBOL        CHECK
+  C:023AH         SYMBOL        DOWN
+  C:023DH         SYMBOL        DOWN1
+  C:0003H         SYMBOL        HERE
+  D:0080H         SYMBOL        P0
+  D:0090H         SYMBOL        P1
+  D:00A0H         SYMBOL        P2
+  C:0000H         LINE#         2
+  C:0003H         LINE#         4
+  C:0005H         LINE#         5
+  C:0007H         LINE#         6
+  C:0009H         LINE#         7
+  C:000AH         LINE#         8
+  C:0210H         LINE#         12
+  C:0212H         LINE#         13
+  C:0214H         LINE#         14
+  C:0216H         LINE#         15
+  C:0218H         LINE#         16
+  C:021AH         LINE#         17
+  C:021CH         LINE#         18
+  C:021EH         LINE#         19
+  C:0220H         LINE#         20
+  C:0222H         LINE#         21
+  C:0224H         LINE#         22
+  C:0226H         LINE#         23
+  C:0228H         LINE#         24
+  C:022AH         LINE#         25
+  C:022CH         LINE#         26
+  C:022EH         LINE#         27
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/11/2016  20:19:21  PAGE 2
+
+
+  C:0230H         LINE#         28
+  C:0231H         LINE#         29
+  C:0233H         LINE#         30
+  C:0235H         LINE#         31
+  C:0238H         LINE#         32
+  C:023AH         LINE#         34
+  C:023DH         LINE#         36
+  -------         ENDMOD        ODD_EVEN__SQUARED_
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 004AH BYTE ( 3%) *
+******************************************************************************
+
+Program Size: data=8.0 xdata=0 code=574
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

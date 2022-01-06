@@ -1,0 +1,54 @@
+A51 MACRO ASSEMBLER  7_SEGMENT_0_F                                                        10/15/2016 01:07:58 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\7 SEGMENT 0-F.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE 7 SEGMENT 0-F.a51 SET(SMALL) DEBUG PRINT(.\Listings\7 SEGMENT 0-F.lst) 
+                      OBJECT(.\Objects\7 SEGMENT 0-F.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H       
+
+0000                   2     START:  
+
+0000 900200            3     MOV DPTR,#200H  ;load ROM pointer       
+
+0003 43900F            4     ORL P1,#0FH
+
+0006 53900F            5     ANL P1,#0FH
+
+0009 E590              6     MOV A,P1
+
+000B 93                7     MOVC A,@A+DPTR  
+
+000C F5A0              8     MOV P2,A        ;Display on port 2
+
+000E 80F0              9     SJMP START
+
+0200                  10     ORG 200H
+
+0200 3F065B4F         11     DB 3FH,06H,5BH,4FH,66H,6DH,7DH,07H,7FH,6FH,77H,7CH,39H,5EH,79H,71H
+
+0204 666D7D07                
+0208 7F6F777C                
+020C 395E7971                
+                      12     END
+
+A51 MACRO ASSEMBLER  7_SEGMENT_0_F                                                        10/15/2016 01:07:58 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+START. . . . . . .  C ADDR   0000H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

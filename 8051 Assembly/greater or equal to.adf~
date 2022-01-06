@@ -1,0 +1,16 @@
+# Assembler debug file for MCU 8051 IDE v1.4.9
+# Used assembler: MCU 8051 IDE
+# Date: 10/12/2016
+F30315CAF9415659B0FE7C96AD6A8CD8 "greater or equal to.asm" 
+0 3 0 117 128 255
+0 4 3 229 128
+0 5 5 84 15
+0 6 7 245 240
+0 7 9 164
+0 8 10 17 12
+0 11 12 180 101 0
+0 12 15 64 3
+0 13 17 245 144
+0 14 19 34
+0 16 20 245 176
+0 17 22 34

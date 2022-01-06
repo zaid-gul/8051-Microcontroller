@@ -1,0 +1,3 @@
+".\Objects\question 5 assignment.obj" 
+TO ".\Objects\assignment q5" 
+PRINT(".\Listings\assignment q5.m51")

@@ -1,0 +1,140 @@
+A51 MACRO ASSEMBLER  QUESTION_5_ASSIGNMENT                                                10/14/2016 21:28:48 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\question 5 assignment.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE question 5 assignment.a51 SET(SMALL) DEBUG PRINT(.\Listings\question 5 
+                      assignment.lst) OBJECT(.\Objects\question 5 assignment.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+
+0000 900200            2     MOV DPTR,#200H
+
+0003                   3     HERE:
+
+0003 43800F            4     ORL P0,#0FH
+
+0006 53800F            5     ANL P0,#0FH
+
+0009 E580              6     MOV A,P0
+
+000B 93                7     MOVC A,@A+DPTR
+
+000C 5110              8     CALL CALCULATE
+
+000E 80F3              9     JMP HERE
+
+0200                  10     ORG 200H
+
+0200 00010409         11     DB 0D,1D,4D,9D,16D,25D,36D,49D,64D,81D,100D,121D,144D,169D,196D,225D
+
+0204 10192431                
+0208 40516479                
+020C 90A9C4E1                
+0210                  12     CALCULATE:
+
+0210 F590             13     MOV P1,A
+
+0212 E4               14     CLR A
+
+0213 7801             15     MOV R0,#1
+
+0215 309003           16     JNB P1.0,DOWN0
+
+0218 28               17     ADD A,R0 ;odd
+
+0219 8000             18     JMP DOWN0
+
+021B                  19     DOWN0:
+
+021B 309103           20     JNB P1.1,DOWN1
+
+021E 28               21     ADD A,R0 ;odd
+
+021F 8000             22     JMP DOWN1
+
+0221                  23     DOWN1:
+
+0221 309203           24     JNB P1.2,DOWN2
+
+0224 28               25     ADD A,R0 ;odd
+
+0225 8000             26     JMP DOWN2
+
+0227                  27     DOWN2:
+
+0227 309303           28     JNB P1.3,DOWN3
+
+022A 28               29     ADD A,R0 ;odd
+
+022B 8000             30     JMP DOWN3
+
+022D                  31     DOWN3:
+
+022D 309403           32     JNB P1.4,DOWN4
+
+0230 28               33     ADD A,R0 ;odd
+
+0231 8000             34     JMP DOWN4
+
+0233                  35     DOWN4:
+
+0233 309503           36     JNB P1.5,DOWN5
+
+0236 28               37     ADD A,R0 ;odd
+
+0237 8000             38     JMP DOWN5
+
+0239                  39     DOWN5:
+
+0239 309603           40     JNB P1.6,DOWN6
+
+023C 28               41     ADD A,R0 ;odd
+
+023D 8000             42     JMP DOWN6
+
+023F                  43     DOWN6:
+
+023F 309703           44     JNB P1.7,RESULT
+
+0242 28               45     ADD A,R0 ;odd
+
+0243 8000             46     JMP RESULT
+
+0245                  47     RESULT:
+
+0245 F5A0             48     MOV P2,A
+
+0247 22               49     RET 
+
+                      50     END
+
+A51 MACRO ASSEMBLER  QUESTION_5_ASSIGNMENT                                                10/14/2016 21:28:48 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+CALCULATE. . . . .  C ADDR   0210H   A   
+DOWN0. . . . . . .  C ADDR   021BH   A   
+DOWN1. . . . . . .  C ADDR   0221H   A   
+DOWN2. . . . . . .  C ADDR   0227H   A   
+DOWN3. . . . . . .  C ADDR   022DH   A   
+DOWN4. . . . . . .  C ADDR   0233H   A   
+DOWN5. . . . . . .  C ADDR   0239H   A   
+DOWN6. . . . . . .  C ADDR   023FH   A   
+HERE . . . . . . .  C ADDR   0003H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+RESULT . . . . . .  C ADDR   0245H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

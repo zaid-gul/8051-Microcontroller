@@ -1,0 +1,69 @@
+A51 MACRO ASSEMBLER  ASSIGNMENT_Q3                                                        10/14/2016 23:05:22 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\assignment q3.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE assignment q3.a51 SET(SMALL) DEBUG PRINT(.\Listings\assignment q3.lst) 
+                      OBJECT(.\Objects\assignment q3.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+
+0000                   2     HERE:
+
+0000 43800F            3     ORL P0,#0FH     ;internally pull up
+
+0003 53800F            4     ANL P0,#0FH     ;masking of MSB
+
+0006 110A              5     CALL CHECK              ;calling of subroutine 
+
+0008 80F6              6     JMP HERE                ; to make loop continuous
+
+000A                   7     CHECK:          ;subroutine
+
+000A 308008            8     JNB P0.0,DOWN    ;jumps if bit is 0
+
+000D D2D3              9     SETB RS0          ;rs0=1
+
+000F C2D4             10     CLR RS1           ;rs1=0
+
+0011 AD80             11     MOV R5,P0  ; odd number stored in R5 of bank 1
+
+0013 8006             12     JMP DOWN1        
+
+0015                  13     DOWN:           
+
+0015 C2D3             14     CLR RS0       ;rs0=0
+
+0017 D2D4             15     SETB RS1                ;rs1=1
+
+0019 AD80             16     MOV R5,P0  ;even number stored in in R5 of bank 2
+
+001B                  17     DOWN1:     
+
+001B 22               18     RET         ;return
+
+                      19     END       ;end program
+
+A51 MACRO ASSEMBLER  ASSIGNMENT_Q3                                                        10/14/2016 23:05:22 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+CHECK. . . . . . .  C ADDR   000AH   A   
+DOWN . . . . . . .  C ADDR   0015H   A   
+DOWN1. . . . . . .  C ADDR   001BH   A   
+HERE . . . . . . .  C ADDR   0000H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+RS0. . . . . . . .  B ADDR   00D0H.3 A   
+RS1. . . . . . . .  B ADDR   00D0H.4 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

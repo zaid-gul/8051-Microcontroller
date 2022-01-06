@@ -1,0 +1,120 @@
+A51 MACRO ASSEMBLER  TEST                                                                 01/14/2017 21:22:51 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\test.obj
+ASSEMBLER INVOKED BY: D:\PROGRAM FILES\KEIL\C51\BIN\A51.EXE test.a51 SET(SMALL) DEBUG PRINT(.\Listings\test.lst) OBJECT(
+                      .\Objects\test.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000 7438              1     MOV A, #38H
+
+0002 1111              2                     ACALL CMD
+
+0004 740E              3                     MOV A, #0EH
+
+0006 1111              4                     ACALL CMD
+
+0008 7401              5                     MOV A, #01H
+
+000A 1111              6                     ACALL CMD
+
+000C 90003E            7                     MOV DPTR,#mystring
+
+000F 1134              8                     ACALL wrtstring
+
+0011 F590              9     CMD: MOV P1,A
+
+0013 C2A0             10          CLR P2.0
+
+0015 C2A1             11              CLR P2.1
+
+0017 D2A2             12              SETB P2.2
+
+0019 112B             13              ACALL DELAY
+
+001B C2A2             14              CLR P2.2
+
+001D 22               15              RET
+
+                      16                      
+
+001E F590             17     DAT:  MOV P1,A
+
+0020 D2A0             18           SETB P2.0
+
+0022 C2A1             19               CLR P2.1
+
+0024 D2A2             20               SETB P2.2
+
+0026 112B             21               ACALL DELAY
+
+0028 C2A2             22               CLR P2.2
+
+002A 22               23               RET
+
+                      24              
+
+002B 7964             25     DELAY:  MOV R1,#100
+
+002D 7AC8             26                     MOV R2,#200
+
+                      27                     
+
+002F DAFE             28     LOOP:   DJNZ R2,LOOP
+
+0031 D9FC             29                     DJNZ R1,LOOP
+
+0033 22               30                     RET
+
+                      31                             
+
+0034 E4               32     wrtstring:      CLR A
+
+0035 93               33                             MOVC A,@A+DPTR
+
+0036 6005             34                             JZ exit
+
+0038 111E             35                             ACALL DAT
+
+003A A3               36                             INC DPTR
+
+003B 80F7             37                             SJMP wrtstring
+
+                      38                                     
+
+003D 22               39     exit:   RET
+
+003E 54415149         40     mystring:       DB"TAQI HAIDER 14-MCT-61"               
+
+0042 20484149                
+0046 44455220                
+004A 31342D4D                
+004E 43542D36                
+0052 31                      
+                      41     END
+
+A51 MACRO ASSEMBLER  TEST                                                                 01/14/2017 21:22:51 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+CMD. . . . . . . .  C ADDR   0011H   A   
+DAT. . . . . . . .  C ADDR   001EH   A   
+DELAY. . . . . . .  C ADDR   002BH   A   
+EXIT . . . . . . .  C ADDR   003DH   A   
+LOOP . . . . . . .  C ADDR   002FH   A   
+MYSTRING . . . . .  C ADDR   003EH   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+WRTSTRING. . . . .  C ADDR   0034H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

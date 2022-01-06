@@ -1,0 +1,70 @@
+A51 MACRO ASSEMBLER  PROJECT_8051                                                         12/01/2016 02:33:47 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\project 8051.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE project 8051.a51 SET(SMALL) DEBUG PRINT(.\Listings\project 8051.lst) OB
+                      JECT(.\Objects\project 8051.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 00H
+
+0000 7590FF            2     MOV P1,#11111111B
+
+0003 C2B7              3     MAIN: CLR P3.7  
+
+0005 D2B6              4           SETB P3.6  
+
+0007 C2B5              5           CLR P3.5  
+
+                       6             
+
+0009 D2B5              7           SETB P3.5  
+
+000B 20B4FD            8     WAIT: JB P3.4,WAIT  
+
+000E C2B7              9           CLR P3.7  
+
+                      10     
+
+0010 C2B6             11           CLR P3.6  
+
+0012 E590             12           MOV A,P1  
+
+                      13       
+
+0014 F580             14           MOV P0,A  
+
+0016 80EB             15           SJMP MAIN  
+
+                      16               
+
+0018 7EFA             17     DELAY: MOV R6,#250D
+
+001A 7FFA             18            MOV R7,#250D
+
+001C 22               19            RET
+
+                      20               END
+
+A51 MACRO ASSEMBLER  PROJECT_8051                                                         12/01/2016 02:33:47 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DELAY. . . . . . .  C ADDR   0018H   A   
+MAIN . . . . . . .  C ADDR   0003H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+WAIT . . . . . . .  C ADDR   000BH   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,108 @@
+A51 MACRO ASSEMBLER  ODD_EVEN__SQUARED_                                                   10/11/2016 20:19:11 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\odd even (squared).obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE odd even (squared).a51 SET(SMALL) DEBUG PRINT(.\Listings\odd even (squa
+                      red).lst) OBJECT(.\Objects\odd even (squared).obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+
+0000 900200            2     MOV DPTR,#200H
+
+0003                   3     HERE:
+
+0003 E580              4     MOV A,P0
+
+0005 5110              5     CALL CHECK
+
+0007 540F              6     ANL A,#0X0F
+
+0009 93                7     MOVC A,@A+DPTR
+
+000A 80F7              8     JMP HERE
+
+0200                   9     ORG 200H
+
+0200 00010409         10     DB 0,1,4,9,16,25,36,49,64,81,100,121,144,169,196,225
+
+0204 10192431                
+0208 40516479                
+020C 90A9C4E1                
+0210                  11     CHECK:
+
+0210 C2A0             12     clr P2.0
+
+0212 C2A1             13     clr P2.1
+
+0214 C2A2             14     clr P2.2
+
+0216 C2A3             15     clr P2.3
+
+0218 C2A4             16     clr P2.4
+
+021A C2A5             17     clr P2.5
+
+021C C2A6             18     clr P2.6
+
+021E C2A7             19     clr P2.7
+
+0220 C290             20     clr P1.0
+
+0222 C291             21     clr P1.1
+
+0224 C292             22     clr P1.2
+
+0226 C293             23     clr P1.3
+
+0228 C294             24     clr P1.4
+
+022A C295             25     clr P1.5
+
+022C C296             26     clr P1.6
+
+022E C297             27     clr P1.7
+
+0230 C3               28     clr C
+
+0231 A280             29     MOV C,P0.0
+
+0233 5005             30     JNC DOWN
+
+0235 858090           31     MOV P1,P0
+
+0238 8003             32     JMP DOWN1
+
+023A                  33     DOWN:
+
+023A 8580A0           34     MOV P2,P0
+
+023D                  35     DOWN1:
+
+023D 22               36     RET 
+
+                      37     END
+
+A51 MACRO ASSEMBLER  ODD_EVEN__SQUARED_                                                   10/11/2016 20:19:11 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+CHECK. . . . . . .  C ADDR   0210H   A   
+DOWN . . . . . . .  C ADDR   023AH   A   
+DOWN1. . . . . . .  C ADDR   023DH   A   
+HERE . . . . . . .  C ADDR   0003H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

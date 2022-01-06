@@ -1,0 +1,95 @@
+A51 MACRO ASSEMBLER  PROJECT_8051__SAMPLE_                                                12/01/2016 02:39:06 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\project 8051 (sample).obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE project 8051 (sample).a51 SET(SMALL) DEBUG PRINT(.\Listings\project 805
+                      1 (sample).lst) OBJECT(.\Objects\project 8051 (sample).obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1             ;INTR signal P1.3
+
+                       2      
+
+  0090                 3             adc_port equ P1      ;ADC data pins P2
+
+  REG                  4             adc_val equ A       ;ADC read value stored here
+
+                       5      
+
+0000                   6             org 0H
+
+0000                   7     start:                    ;Start of Program
+
+0000 1108              8             acall conv            ;Start ADC conversion
+
+0002 1115              9             acall read            ;Read converted value
+
+0004 F580             10             mov P0,adc_val        ;Move the value to Port 3
+
+0006 80F8             11             sjmp start            ;Do it again
+
+                      12      
+
+0008                  13     conv:                     ;Start of Conversion
+
+0008 C2B7             14             clr P3.7              ;Make CS low
+
+000A C2B5             15             clr P3.5                 ;Make WR Low
+
+000C 00               16             nop
+
+000D D2B5             17             setb P3.5                ;Make WR High
+
+000F D2B7             18             setb P3.7               ;Make CS high
+
+0011                  19     wait:
+
+0011 20B4FD           20             jb P3.4,wait          ;Wait for INTR signal
+
+0014 22               21             ret                   ;Conversion done
+
+                      22      
+
+0015                  23     read:                     ;Read ADC value
+
+0015 C2B7             24             clr P3.7                ;Make CS Low
+
+0017 C2B6             25             clr P3.6                ;Make RD Low
+
+0019 E590             26             mov a,adc_port        ;Read the converted value
+
+                      27                      ;Store it in local variable
+
+001B D2B6             28             setb P3.6              ;Make RD High
+
+001D D2B7             29             setb P3.7               ;Make CS High
+
+001F 22               30             ret                   ;Reading done
+
+                      31             end
+
+A51 MACRO ASSEMBLER  PROJECT_8051__SAMPLE_                                                12/01/2016 02:39:06 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ADC_PORT . . . . .  D ADDR   0090H   A   
+ADC_VAL. . . . . .    REG    A           
+CONV . . . . . . .  C ADDR   0008H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+READ . . . . . . .  C ADDR   0015H   A   
+START. . . . . . .  C ADDR   0000H   A   
+WAIT . . . . . . .  C ADDR   0011H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

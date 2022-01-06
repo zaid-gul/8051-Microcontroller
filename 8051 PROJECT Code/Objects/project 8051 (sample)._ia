@@ -1,0 +1,1 @@
+"project 8051 (sample).a51" SET (SMALL) DEBUG PRINT(.\Listings\project 8051 (sample).lst) OBJECT(.\Objects\project 8051 (sample).obj) EP

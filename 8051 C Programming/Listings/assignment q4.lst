@@ -1,0 +1,80 @@
+A51 MACRO ASSEMBLER  ASSIGNMENT_Q4                                                        10/14/2016 21:22:04 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\assignment q4.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE assignment q4.a51 SET(SMALL) DEBUG PRINT(.\Listings\assignment q4.lst) 
+                      OBJECT(.\Objects\assignment q4.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+
+0000 900200            2     MOV DPTR,#200H
+
+0003                   3     HERE:
+
+0003 43800F            4     ORL P0,#0FH
+
+0006 53800F            5     ANL P0,#0FH
+
+0009 E580              6     MOV A,P0
+
+000B 93                7     MOVC A,@A+DPTR
+
+000C 5110              8     CALL CHECK
+
+000E 80F3              9     JMP HERE
+
+0200                  10     ORG 200H
+
+0200 00010409         11     DB 0D,1D,4D,9D,16D,25D,36D,49D,64D,81D,100D,121D,144D,169D,196D,225D
+
+0204 10192431                
+0208 40516479                
+020C 90A9C4E1                
+0210                  12     CHECK:
+
+0210 B46403           13     CJNE A,#100,NOT_EQ
+
+0213 F5B0             14     MOV P3,A     ; displaying on port 3  A=100
+
+0215 22               15     RET
+
+0216                  16     NOT_EQ:      ; if  A<100    
+
+0216 4003             17     JC LESS_THAN  
+
+0218 F590             18     MOV P1,A    ;   displaying on port 1  A>100
+
+021A 22               19     RET
+
+021B                  20     LESS_THAN:
+
+021B F5B0             21     MOV P3,A    ;   displaying on port 3  A<100
+
+021D 22               22     RET
+
+                      23     END
+
+A51 MACRO ASSEMBLER  ASSIGNMENT_Q4                                                        10/14/2016 21:22:04 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+CHECK. . . . . . .  C ADDR   0210H   A   
+HERE . . . . . . .  C ADDR   0003H   A   
+LESS_THAN. . . . .  C ADDR   021BH   A   
+NOT_EQ . . . . . .  C ADDR   0216H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
